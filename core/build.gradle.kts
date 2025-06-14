@@ -2,11 +2,10 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.kotlin.compose)
 }
 
 android {
-    namespace = "interview.lucashos.sakeshop.feature"
+    namespace = "interview.lucashos.sakeshop.core"
     compileSdk = 35
 
     defaultConfig {
@@ -32,15 +31,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":data"))
-    implementation(project(":domain"))
-    implementation(project(":core"))
-    implementation(project(":designsystem"))
-
     implementation(libs.androidx.core.ktx)
-    implementation(libs.bundles.compose)
-    implementation(libs.bundles.navigation)
-    ksp(libs.compose.destinations.ksp)
     implementation(libs.bundles.di)
     ksp(libs.dagger.hilt.compiler)
     testImplementation(libs.junit)

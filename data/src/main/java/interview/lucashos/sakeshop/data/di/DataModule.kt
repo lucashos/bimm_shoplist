@@ -1,7 +1,6 @@
 package interview.lucashos.sakeshop.data.di
 
 import android.app.Application
-import android.content.Context
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -14,6 +13,7 @@ import interview.lucashos.sakeshop.data.providers.JsonProvider
 import interview.lucashos.sakeshop.data.providers.ShopListJsonProvider
 import interview.lucashos.sakeshop.data.repository.SakeShopRepositoryImpl
 import interview.lucashos.sakeshop.domain.repository.SakeShopRepository
+import interview.lucashos.sakeshop.domain.usecase.ListSakeShopsUseCase
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -29,6 +29,15 @@ object DataModule {
 
     @Provides
     fun provideSakeShopRepository(
-        datasource: SakeShopDataSource
-    ): SakeShopRepository = SakeShopRepositoryImpl(datasource)
+        dataSource: SakeShopDataSource
+    ): SakeShopRepository = SakeShopRepositoryImpl(
+        dataSource = dataSource
+    )
+
+    @Provides
+    fun provideListSakeShopsUseCase(
+        repository: SakeShopRepository
+    ) = ListSakeShopsUseCase(
+        repository = repository
+    )
 }

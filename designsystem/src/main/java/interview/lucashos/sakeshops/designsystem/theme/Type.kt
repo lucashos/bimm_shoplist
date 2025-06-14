@@ -1,4 +1,4 @@
-package interview.lucashos.sakeshop.ui.theme
+package interview.lucashos.sakeshops.designsystem.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
