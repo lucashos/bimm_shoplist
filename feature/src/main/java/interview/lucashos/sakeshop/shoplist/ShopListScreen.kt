@@ -65,7 +65,7 @@ fun ShopListScreen(
 }
 
 @Composable
-private fun ShopListScaffold(
+fun ShopListScaffold(
     shops: List<SakeShop>,
     onEvent: (ShopListEvent) -> Unit
 ) {
@@ -170,7 +170,7 @@ private fun Rating(rating: Double) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ShopListAppBar() {
+private fun ShopListAppBar() {
     MediumTopAppBar(
         title = {
             Text(

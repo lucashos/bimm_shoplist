@@ -43,7 +43,7 @@ dependencies {
     ksp(libs.compose.destinations.ksp)
     implementation(libs.bundles.di)
     ksp(libs.dagger.hilt.compiler)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.bundles.tests)
+    androidTestImplementation(libs.bundles.androidTests)
+    testImplementation(kotlin("test"))
 }
