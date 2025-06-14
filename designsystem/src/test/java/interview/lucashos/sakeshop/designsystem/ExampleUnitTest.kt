@@ -1,4 +1,4 @@
-package interview.lucashos.sakeshops.designsystem
+package interview.lucashos.sakeshop.designsystem
 
 import org.junit.Test
 

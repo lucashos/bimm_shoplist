@@ -1,4 +1,4 @@
-package interview.lucashos.sakeshops.designsystem.theme
+package interview.lucashos.sakeshop.designsystem
 
 import androidx.compose.ui.unit.dp
 
@@ -116,5 +116,29 @@ object Dimens {
          * [Grid] * 32 = 256.dp
          */
         val XXLarge = Grid * 32
+    }
+
+    object CornerRadius {
+        val none = 0.dp
+
+        /**
+         * [Grid] / 2 = 4.dp
+         */
+        val Small = Grid / 2
+
+        /**
+         * [Grid] = 8.dp
+         */
+        val Medium = Grid
+
+        /**
+         * [Grid] * 2 = 16.dp
+         */
+        val Large = Grid * 2
+
+        /**
+         * [Grid] * 3 = 24.dp
+         */
+        val XLarge = Grid * 3
     }
 }

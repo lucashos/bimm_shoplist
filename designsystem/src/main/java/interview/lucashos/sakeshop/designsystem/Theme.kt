@@ -1,4 +1,4 @@
-package interview.lucashos.sakeshops.designsystem.theme
+package interview.lucashos.sakeshop.designsystem
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -41,7 +41,6 @@ fun SakeShopTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
         content = content
     )
 }

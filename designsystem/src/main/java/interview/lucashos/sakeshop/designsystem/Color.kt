@@ -1,4 +1,4 @@
-package interview.lucashos.sakeshops.designsystem.theme
+package interview.lucashos.sakeshop.designsystem
 
 import androidx.compose.ui.graphics.Color
 

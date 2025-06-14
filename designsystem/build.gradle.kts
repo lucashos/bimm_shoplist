@@ -1,10 +1,11 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
-    namespace = "interview.lucashos.sakeshops.designsystem"
+    namespace = "interview.lucashos.sakeshop.designsystem"
     compileSdk = 35
 
     defaultConfig {
@@ -30,7 +31,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.bundles.compose)
     testImplementation(libs.junit)

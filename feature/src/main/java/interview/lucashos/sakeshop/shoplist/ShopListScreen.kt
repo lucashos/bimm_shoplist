@@ -30,12 +30,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.generated.destinations.ShopDetailsScreenDestination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
+import interview.lucashos.sakeshop.designsystem.Dimens
+import interview.lucashos.sakeshop.designsystem.Dimens.Spacing
+import interview.lucashos.sakeshop.designsystem.Yellow
 import interview.lucashos.sakeshop.domain.model.SakeShop
 import interview.lucashos.sakeshop.feature.R
 import interview.lucashos.sakeshop.navigation.FeaturesNavGraph
-import interview.lucashos.sakeshops.designsystem.theme.Dimens.Icon
-import interview.lucashos.sakeshops.designsystem.theme.Dimens.Spacing
-import interview.lucashos.sakeshops.designsystem.theme.Yellow
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
@@ -159,7 +159,7 @@ private fun Rating(rating: Double) {
             painter = painterResource(id = R.drawable.ic_star),
             tint = Yellow,
             contentDescription = null,
-            modifier = Modifier.size(Icon.Medium)
+            modifier = Modifier.size(Dimens.Icon.Large)
         )
         Text(
             text = stringResource(R.string.rating_score, rating),

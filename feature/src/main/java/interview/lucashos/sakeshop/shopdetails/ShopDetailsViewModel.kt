@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import interview.lucashos.sakeshop.core.di.IoDispatcher
+import interview.lucashos.sakeshop.domain.model.Coordinates
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -25,15 +26,33 @@ class ShopDetailsViewModel @Inject constructor(
 
     fun onEvent(event: ShopDetailsEvent) {
         when (event) {
-            is ShopDetailsEvent.ShowToast -> {
-                viewModelScope.launch(dispatcher) {
-                    _events.emit(UiEvent.Toast(text = "ShopDetails"))
-                }
+            is ShopDetailsEvent.Init -> state = state.copy(
+                shop = event.shop
+            )
+
+            ShopDetailsEvent.Back -> viewModelScope.launch(dispatcher) {
+                _events.emit(UiEvent.Back)
+            }
+
+            is ShopDetailsEvent.OpenAddress -> viewModelScope.launch(dispatcher) {
+                _events.emit(UiEvent.OpenMaps(
+                    address = event.address,
+                    coordinates = event.coordinates
+                ))
+            }
+
+            is ShopDetailsEvent.OpenWebsite -> viewModelScope.launch(dispatcher) {
+                _events.emit(UiEvent.OpenWebsite(website = event.website))
             }
         }
     }
 
     sealed class UiEvent {
-        data class Toast(val text: String) : UiEvent()
+
+        data class OpenMaps(val address: String, val coordinates: Coordinates) : UiEvent()
+
+        data class OpenWebsite(val website: String) : UiEvent()
+
+        data object Back : UiEvent()
     }
 }
